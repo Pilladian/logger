@@ -15,12 +15,12 @@ func SetLogLevel(level int) {
 	if level < 3 && level >= 0 {
 		log_level = level
 	} else {
-		panic(fmt.Sprintf("Unknown LogLevel \"%d\"", level))
+		panic(fmt.Sprintf("Unknown LogLevel \"%d\". Possible values between 0-2", level))
 	}
 }
 
 // Log info message *message* if log_level is set to 2
-func LogInfo(message string) {
+func Info(message string) {
 	if log_level == 2 {
 		info := string(colorWhite) + "INFO" + string(colorReset)
 		log.Printf("[  %s   ] %v", info, message)
@@ -28,7 +28,7 @@ func LogInfo(message string) {
 }
 
 // Log warning message *message* if log_level is at least set to 1
-func LogWarning(message string) {
+func Warning(message string) {
 	if log_level >= 1 {
 		warning := string(colorYellow) + "WARNING" + string(colorReset)
 		log.Printf("[ %s ] %v", warning, message)
@@ -36,7 +36,7 @@ func LogWarning(message string) {
 }
 
 // Log error message *message*
-func LogError(message string) {
+func Error(message string) {
 	if log_level >= 0 {
 		err := string(colorRed) + "ERROR" + string(colorReset)
 		log.Printf("[  %s  ] %v", err, message)
