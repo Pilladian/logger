@@ -81,7 +81,7 @@ func Error(message string) {
 			ch <- fmt.Sprintf("%s [  ERROR  ] %v", header, message)
 		} else {
 			err := string(colorRed) + "ERROR" + string(colorReset)
-			fmt.Printf("%s [  %s   ] %v\n", header, err, message)
+			fmt.Printf("%s [  %s  ] %v\n", header, err, message)
 		}
 	}
 }
