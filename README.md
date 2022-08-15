@@ -4,7 +4,7 @@ Logger written in Go
 ## Installation
 Add package to your Go project
 ```bash
-go get github.com/Pilladian/logger@v1.1.0
+go get github.com/Pilladian/logger
 ```
 
 ## Example
