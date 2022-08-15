@@ -77,11 +77,12 @@ func Warning(message string) {
 func Error(message string) {
 	if log_level >= 0 {
 		header := time.Now().Format("2006/02/01 03:04:05")
+
 		if log_filename != "" {
 			ch <- fmt.Sprintf("%s [  ERROR  ] %v", header, message)
-		} else {
-			err := string(colorRed) + "ERROR" + string(colorReset)
-			fmt.Printf("%s [  %s  ] %v\n", header, err, message)
 		}
+
+		err := string(colorRed) + "ERROR" + string(colorReset)
+		fmt.Printf("%s [  %s  ] %v\n", header, err, message)
 	}
 }
