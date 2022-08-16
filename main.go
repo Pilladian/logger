@@ -86,3 +86,18 @@ func Error(message string) {
 		fmt.Printf("%s [  %s  ] %v\n", header, err, message)
 	}
 }
+
+// Log fatal message *message* and exit program afterwards
+func Fatal(message string) {
+	if log_level >= 0 {
+		header := time.Now().Format("2006/02/01 03:04:05")
+
+		if log_filename != "" {
+			ch <- fmt.Sprintf("%s [  FATAL  ] %v", header, message)
+		}
+
+		err := string(colorBackgroundRed) + "FATAL" + string(colorReset)
+		fmt.Printf("%s [  %s  ] %v\n", header, err, message)
+	}
+	os.Exit(1)
+}
