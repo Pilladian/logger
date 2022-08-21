@@ -68,7 +68,7 @@ func Warning(message string) {
 			ch <- fmt.Sprintf("%s [ WARNING ] %v", header, message)
 		} else {
 			warning := string(colorYellow) + "WARNING" + string(colorReset)
-			fmt.Printf("%s [  %s   ] %v\n", header, warning, message)
+			fmt.Printf("%s [ %s ] %v\n", header, warning, message)
 		}
 	}
 }
