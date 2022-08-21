@@ -32,5 +32,8 @@ func main() {
 
     // Log Error
     logger.Error("Some Error to log")
+    
+    // Log Error and exit with status code 1
+    logger.Fatal("Some Error to log")
 }
 ```
