@@ -53,10 +53,9 @@ func Info(message string) {
 		header := time.Now().Format("2006/02/01 03:04:05")
 		if log_filename != "" {
 			ch <- fmt.Sprintf("%s [  INFO   ] %v", header, message)
-		} else {
-			info := string(colorWhite) + "INFO" + string(colorReset)
-			fmt.Printf("%s [  %s   ] %v\n", header, info, message)
 		}
+		info := string(colorWhite) + "INFO" + string(colorReset)
+		fmt.Printf("%s [  %s   ] %v\n", header, info, message)
 	}
 }
 
@@ -66,10 +65,9 @@ func Warning(message string) {
 		header := time.Now().Format("2006/02/01 03:04:05")
 		if log_filename != "" {
 			ch <- fmt.Sprintf("%s [ WARNING ] %v", header, message)
-		} else {
-			warning := string(colorYellow) + "WARNING" + string(colorReset)
-			fmt.Printf("%s [ %s ] %v\n", header, warning, message)
 		}
+		warning := string(colorYellow) + "WARNING" + string(colorReset)
+		fmt.Printf("%s [ %s ] %v\n", header, warning, message)
 	}
 }
 
@@ -99,5 +97,6 @@ func Fatal(message string) {
 		err := string(colorBackgroundRed) + "FATAL" + string(colorReset)
 		fmt.Printf("%s [  %s  ] %v\n", header, err, message)
 	}
+	time.Sleep(1 * time.Second)
 	os.Exit(1)
 }
